@@ -1,0 +1,5 @@
+docplex==2.10.150
+cplex
+git+https://github.com/gus0k/pymarket#egg=pymarket
+tqdm
+numpy==1.16.4

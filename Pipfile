@@ -1,0 +1,16 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+
+[packages]
+docplex = "==2.10.150"
+cplex = "*"
+pymarket = {git = "https://github.com/gus0k/pymarket"}
+tqdm = "*"
+numpy = "==1.16.4"
+
+[requires]
+python_version = "3.7"
