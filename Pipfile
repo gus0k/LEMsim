@@ -11,6 +11,10 @@ cplex = "*"
 pymarket = {git = "https://github.com/gus0k/pymarket"}
 tqdm = "*"
 numpy = "==1.16.4"
+urllib2 = "*"
+urlib2 = "*"
+urlib = "*"
+urllib = "*"
 
 [requires]
 python_version = "3.7"

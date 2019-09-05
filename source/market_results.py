@@ -1,6 +1,7 @@
 import pickle
 from copy import deepcopy
 import numpy as np
+import matplotlib.pyplot as plt
 
 
 class MarketResult(object):
@@ -73,3 +74,8 @@ def load_market_results(filename):
         mr = MarketResult(s[0], s[1], s[2])
         sims.append(mr)
     return sims
+
+def load_one_result(filename):
+    with open(filename, 'rb') as fh: data = pickle.load(fh)
+    mr = MarketResult(data[0], data[1], data[2])
+    return mr

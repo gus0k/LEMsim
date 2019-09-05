@@ -58,11 +58,13 @@ class ProsumerBroker:
 
         return bid
     
-    def market_callback(self, quantity, price):
+    def market_callback(self, quantity, price, clearing_price):
         """
         Informs the consumer of the market result
         Params:
             market_results: result of the last market
+            clearing_price: price at which the market cleared or None
+            if no trade ocurred.
         """
-        self.prosumer.process_market_results(quantity, price)
+        self.prosumer.process_market_results(quantity, price, clearing_price)
     

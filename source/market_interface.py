@@ -1,4 +1,5 @@
 import pymarket as pm
+import numpy as np
 
 
 class MarketInterface(pm.Market):
@@ -21,7 +22,19 @@ class MarketInterface(pm.Market):
 
     
     def clear(self, method='muda', r=None):
-        tr, _ = self.run(method, r=r)
+        tr, ex = self.run(method, r=r)
+        clearing_price = []
+        if method == 'muda':
+            if 'price_left' in ex:
+                clearing_price.append(ex['price_left'])
+            if 'price_right' in ex:
+                clearing_price.append(ex['price_right'])
+        cp = np.array(clearing_price)
+        if cp.shape[0] > 0 and np.isfinite(cp).all():
+            cp = cp.mean()
+        else:
+            cp = None
+
         bids = self.bm.get_df()
         tr = tr.get_df()
         for k in self.callbacks:
@@ -35,5 +48,5 @@ class MarketInterface(pm.Market):
                 buying = bids.loc[k,'buying']
                 if not buying:
                     q = - q
-            self.callbacks[k](q, p)
+            self.callbacks[k](q, p, cp)
         return tr
