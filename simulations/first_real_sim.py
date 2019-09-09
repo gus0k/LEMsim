@@ -105,7 +105,7 @@ if __name__ == '__main__':
     end = time.time()
 
 
-    NAME = f"simres_8_{algo}_{UPDATE_TYPE}_1day_{year}_{month}_{day}_{seed}_{horizon}.pkl"
+    NAME = f"simres_9_{algo}_{UPDATE_TYPE}_1day_{year}_{month}_{day}_{seed}_{horizon}.pkl"
     with open(TMPDIR + NAME, "wb") as fh: pickle.dump([prosumers, brokers, market_sequence_1, renames], fh)
 
 

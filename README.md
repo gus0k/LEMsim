@@ -1,4 +1,6 @@
-# pytemplete
+# LEM Simulations
+
+An environment to run Local Energy Market simulations
 
 
 ## Download data
@@ -7,12 +9,18 @@
 2. Run ```sh
 python download_data.py
 ```
-3. Enjoy
-
 
 ## Run simulations
-
+From the main directory:
 ```sh
-parallel --verbose --header : --colsep ' ' python simulations/first_real_sim.py {Strategy} {Year} {Month} {Day} {Seed} {Algo} {Horizon} :::: simulations/parameter_set.txt
+parallel --verbose --header : --colsep ' ' python simulations/first_real_sim.py {Strategy} {Year} {Month} {Day} {Seed} {Algo} {Horizon} :::: simulations/parameter_set2.txt
+
 ```
+
+## Generate plots
+Also from the same directory
+```sh
+python simulations/plot_results.py
+```
+
 

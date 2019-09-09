@@ -1,0 +1,15 @@
+Strategy Year Month Day Seed Algo Horizon
+donothing 2013 5 24 2210 huang 0
+donothing 2013 5 24 2210 huang 0
+lastpaid 2013 5 24 69 huang 0
+lastpaid 2013 5 24 2210 huang 0
+lastcp 2013 5 24 2210 huang 0
+lastpaid 2013 5 24 2210 huang 1
+lastcp 2013 5 24 2210 huang 1
+donothing 2013 1 24 2210 huang 0
+donothing 2013 1 24 2210 huang 0
+lastpaid 2013 1 24 69 huang 0
+lastpaid 2013 1 24 2210 huang 0
+lastcp 2013 1 24 2210 huang 0
+lastpaid 2013 1 24 2210 huang 1
+lastcp 2013 1 24 2210 huang 1
