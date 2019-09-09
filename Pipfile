@@ -8,13 +8,9 @@ verify_ssl = true
 [packages]
 docplex = "==2.10.150"
 cplex = "*"
-pymarket = {git = "https://github.com/gus0k/pymarket"}
 tqdm = "*"
 numpy = "==1.16.4"
-urllib2 = "*"
-urlib2 = "*"
-urlib = "*"
-urllib = "*"
+pymarket = {git = "https://github.com/gus0k/pymarket"}
 
 [requires]
 python_version = "3.7"

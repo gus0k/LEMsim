@@ -19,9 +19,10 @@ def solve_bat(
     d_min,
     commitment=None,
     reg=True,
-    eps=1e-5
+    eps=1e-3
 ):
 
+    assert (price_buy >= price_sell).all()
     #commitment = None
     #print(commitment)
     opt_model = cpx.AdvModel(name="Battery")
@@ -96,6 +97,8 @@ def solve_bat(
         status = opt_model.solution._solve_details.status
     
     except Exception as e:
+        print('Cplex error')
+        print(price_buy, price_sell)
         print(demand, B_0, commitment, min_t, max_t)
         raise ValueError
     #print(opt_model.solve_details)

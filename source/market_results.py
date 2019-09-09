@@ -10,7 +10,7 @@ class MarketResult(object):
     and get statistics about them
     """
 
-    def __init__(self, prosumer_list, broker_list, market_list):
+    def __init__(self, prosumer_list, broker_list, market_list, renames):
         """
 
 
@@ -18,6 +18,7 @@ class MarketResult(object):
         self.prosumers = deepcopy(prosumer_list)
         self.brokers = deepcopy(broker_list)
         self.markets = deepcopy(market_list)
+        self.rename = deepcopy(renames)
 
     def get_aggregated_consumption_without_market(self):
         """
@@ -77,5 +78,5 @@ def load_market_results(filename):
 
 def load_one_result(filename):
     with open(filename, 'rb') as fh: data = pickle.load(fh)
-    mr = MarketResult(data[0], data[1], data[2])
+    mr = MarketResult(data[0], data[1], data[2], data[3])
     return mr

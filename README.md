@@ -13,6 +13,6 @@ python download_data.py
 ## Run simulations
 
 ```sh
-parallel --verbose --header : --colsep ' ' python simulations/first_real_sim.py {Strategy} {Year} {Month} {Day} :::: simulations/parameter_set.txt
+parallel --verbose --header : --colsep ' ' python simulations/first_real_sim.py {Strategy} {Year} {Month} {Day} {Seed} {Algo} {Horizon} :::: simulations/parameter_set.txt
 ```
 

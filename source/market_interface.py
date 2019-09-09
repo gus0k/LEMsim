@@ -21,24 +21,16 @@ class MarketInterface(pm.Market):
         return id_
 
     
-    def clear(self, method='muda', r=None):
-        tr, ex = self.run(method, r=r)
-        clearing_price = []
-        if method == 'muda':
-            if 'price_left' in ex:
-                clearing_price.append(ex['price_left'])
-            if 'price_right' in ex:
-                clearing_price.append(ex['price_right'])
-        cp = np.array(clearing_price)
-        if cp.shape[0] > 0 and np.isfinite(cp).all():
-            cp = cp.mean()
+    def clear(self, method='huang', r=None):
+        if method=='huang':
+            tr, ex = self.run(method)
         else:
-            cp = None
-
+            tr, ex = self.run(method, r=r)
+        pb = ex.get('price_buy', None)
+        ps = ex.get('price_sell', None)
         bids = self.bm.get_df()
         tr = tr.get_df()
         for k in self.callbacks:
-            #print(k)
             tmp = tr[tr.bid == k]
             if tmp.shape[0] == 0:
                 q, p = 0, 0
@@ -48,5 +40,5 @@ class MarketInterface(pm.Market):
                 buying = bids.loc[k,'buying']
                 if not buying:
                     q = - q
-            self.callbacks[k](q, p, cp)
+            self.callbacks[k](q, p, pb, ps)
         return tr

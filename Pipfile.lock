@@ -97,7 +97,7 @@
         },
         "pymarket": {
             "git": "https://github.com/gus0k/pymarket",
-            "ref": "2f8db92010d5f9407a72941788500351e92cbe81"
+            "ref": "fe2a07ced16ec1860f3fb8413805d153c6b7033c"
         },
         "requests": {
             "hashes": [

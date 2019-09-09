@@ -1,19 +1,12 @@
-Strategy Year Month Day
-donothing 2013 5 22
-donothing 2013 5 23
-donothing 2013 5 24
-donothing 2013 5 26
-donothing 2013 5 26
-donothing 2013 5 27
-lastcp 2013 5 22
-lastcp 2013 5 23
-lastcp 2013 5 24
-lastcp 2013 5 26
-lastcp 2013 5 26
-lastcp 2013 5 27
-lastpaid 2013 5 22
-lastpaid 2013 5 23
-lastpaid 2013 5 24
-lastpaid 2013 5 26
-lastpaid 2013 5 26
-lastpaid 2013 5 27
+Strategy Year Month Day Seed Algo Horizon
+donothing 2013 5 24 2210 huang 0
+donothing 2013 5 24 2210 huang 0
+lastpaid 2013 5 24 69 huang 0
+lastpaid 2013 5 24 2210 huang 0
+lastcp 2013 5 24 2210 huang 0
+lastpaid 2013 5 24 2210 huang 1
+lastcp 2013 5 24 2210 huang 1
+lastpaid 2013 5 24 69 p2p 0
+lastpaid 2013 5 24 2210 p2p 0
+lastpaid 2013 5 24 69 p2p 1
+lastpaid 2013 5 24 2210 p2p 1

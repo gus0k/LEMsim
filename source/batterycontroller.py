@@ -70,7 +70,7 @@ class BatteryController:
                        self.eff_d,
                        self.d_max,
                        self.d_min,
-                       commitment
+                       commitment,
                       )
         #print(res[1])
         xs = res[2]

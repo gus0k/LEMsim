@@ -6,7 +6,7 @@ from source.singlebidding import SingleBid
 
 class ProsumerBroker:
     
-    def __init__(self, prosumer, strategy='truthful', r=None):
+    def __init__(self, prosumer, gain, strategy='truthful', r=None):
         """
         Instanciates a broker with the prosumer it will 
         work for. There is a % of desired gain over the normal
@@ -21,6 +21,7 @@ class ProsumerBroker:
         self.prosumer = prosumer
         self.strategy = strategy
         self.r = r
+        self.gain = gain 
         
     def market_bid(self, time):
         """
@@ -40,25 +41,27 @@ class ProsumerBroker:
         buying = True if bid_q > 0 else False
         
         if self.strategy == 'truthful':
-            if bid_q > 0:
-                bid_p = buy
-            else:
-                bid_p = sell
+            bid_p = expected_p
+            # if bid_q > 0:
+            #     bid_p = buy
+            # else:
+            #     bid_p = sell
         
         elif self.strategy == 'ZI':
             bid_p = self.r.uniform(sell, buy)
         
         # If buying, want to pay less. If selling, want to get more
-        #bid_p = (1 - self.gain) * expected_p if bid_q > 0 else (1 + self.gain) * expected_p
+        bid_p = (1 - self.gain) * expected_p if bid_q > 0 else (1 + self.gain) * expected_p
         #print('bidding', bid_q.round(), bid_p)
         
         # Final bid 
         #bid = SingleBid(self.prosumer.owner_id, time, (bid_q, bid_p, buying), self.market_callback)
+        bid_q = round(bid_q, 4)
         bid = (abs(bid_q), bid_p, self.prosumer.owner_id, buying, time)
 
         return bid
     
-    def market_callback(self, quantity, price, clearing_price):
+    def market_callback(self, quantity, price, pb, ps):
         """
         Informs the consumer of the market result
         Params:
@@ -66,5 +69,5 @@ class ProsumerBroker:
             clearing_price: price at which the market cleared or None
             if no trade ocurred.
         """
-        self.prosumer.process_market_results(quantity, price, clearing_price)
+        self.prosumer.process_market_results(quantity, price, pb, ps)
     
